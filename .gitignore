@@ -1,0 +1,4 @@
+*.pyc
+config/
+fabfile.py
+.vagrant
