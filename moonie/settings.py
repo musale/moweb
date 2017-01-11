@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.10/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
-
+from config.setup import DB, DEBUG
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -20,10 +20,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'pk@htf7u0c+r$0z4p2)i^v%kur=$)m7c6mw1daruxevi4vb+72'
+SECRET_KEY = 'uzl!-)zxsy3xte3f8nk_#0%(50__!0$%@-oiuuk&4d&o$lmz@#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = DEBUG
 
 ALLOWED_HOSTS = []
 
@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core',
 ]
 
 MIDDLEWARE = [
@@ -76,9 +75,12 @@ WSGI_APPLICATION = 'moonie.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': DB['name'],
+        'USER': DB['user'],
+        'PASSWORD': DB['password'],
+        'HOST': DB['host'],
+    },
 }
 
 
@@ -106,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
@@ -119,3 +121,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = '/apps/moonie_web/static/'
+
+MEDIA_ROOT = '/apps/moonie_web/media/'
+
+MEDIA_URL = '/media/'
