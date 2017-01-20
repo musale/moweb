@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Home | E-Shopper</title>
+    <title>Moon Shop</title>
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/prettyPhoto.css' %}" rel="stylesheet">
@@ -26,7 +26,11 @@
 </head><!--/head-->
 
 <body>
-	{% include '_includes/_header.html' %}
+	{% include '_includes/header.html' %}
+
+    {% block content %} {% endblock %}
+
+    {% include '_includes/footer.html' %}
 
     <script src="{% static 'js/jquery.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
